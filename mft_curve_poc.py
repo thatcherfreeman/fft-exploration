@@ -53,7 +53,7 @@ if __name__ == "__main__":
         print(freq.shape)
         freqs[:, :, i] = freq
 
-    # TODO: replace this with something that better reflectst he desired MTF curve.
+    # TODO: replace this with something that better reflects the desired MTF curve.
     kernel = cv2.getGaussianKernel(ksize=100, sigma=0)
     kernel = kernel @ kernel.T
     print("kernel shape: ", kernel.shape)
