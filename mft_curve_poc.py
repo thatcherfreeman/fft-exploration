@@ -4,6 +4,7 @@ import argparse
 import numpy as np
 from scipy.fft import fft2, ifft2
 import cv2
+import matplotlib.pyplot as plt
 
 def open_image(image_fn: str) -> np.ndarray:
     os.environ["OPENCV_IO_ENABLE_OPENEXR"] = "1"
@@ -17,10 +18,9 @@ def open_image(image_fn: str) -> np.ndarray:
 def show_image(image: np.ndarray):
     m, n, c = image.shape
     image = image.astype(np.float32)
-    if c == 3:
-        image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
-    cv2.imshow("image", image)
-    cv2.waitKey(0)
+
+    plt.imshow(image)
+    plt.show()
 
 def write_image(image_fn: str, img: np.ndarray):
     os.environ["OPENCV_IO_ENABLE_OPENEXR"] = "1"
